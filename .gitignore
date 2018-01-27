@@ -38,6 +38,7 @@
 
 # Debug files
 *.dSYM/
+
 *.su
 *.idb
 *.pdb
@@ -50,3 +51,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+/UIUntFream/Temp
+/UIUntFream/Library
+/UIUntFream/ProjectSettings
+*.meta
+*.suo
+*sln
