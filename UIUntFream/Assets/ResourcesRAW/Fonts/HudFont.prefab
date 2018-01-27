@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &146342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 446342}
+  - 114: {fileID: 11446342}
+  m_Layer: 0
+  m_Name: HudFont
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446342
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11446342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6f530a2711ba341b8e210ab920a88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: b5b49f6d67df5514e96dd172881aa46f, type: 2}
+  mSprites:
+  - name: baoji_0
+    x: 199
+    y: 305
+    width: 250
+    height: 207
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 6
+    paddingTop: 0
+    paddingBottom: 49
+  - name: fightPower_0
+    x: 450
+    y: 321
+    width: 239
+    height: 191
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 17
+    paddingTop: 0
+    paddingBottom: 65
+  - name: jiaxue_0
+    x: 690
+    y: 313
+    width: 249
+    height: 96
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 7
+    paddingTop: 1
+    paddingBottom: 159
+  - name: other_da_0
+    x: 0
+    y: 244
+    width: 198
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 58
+    paddingTop: 0
+    paddingBottom: 244
+  - name: other_xiao_0
+    x: 199
+    y: 101
+    width: 229
+    height: 203
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 27
+    paddingTop: 0
+    paddingBottom: 53
+  - name: playerFight_0
+    x: 450
+    y: 129
+    width: 239
+    height: 191
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 17
+    paddingTop: 0
+    paddingBottom: 65
+  - name: pugong_0
+    x: 199
+    y: 3
+    width: 250
+    height: 97
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 6
+    paddingTop: 0
+    paddingBottom: 159
+  - name: shixue_0
+    x: 690
+    y: 216
+    width: 249
+    height: 96
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 7
+    paddingTop: 1
+    paddingBottom: 159
+  - name: zhongdu_da_0
+    x: 690
+    y: 410
+    width: 241
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 15
+    paddingTop: 0
+    paddingBottom: 154
+  - name: zhongdu_xiao_0
+    x: 690
+    y: 138
+    width: 245
+    height: 77
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 10
+    paddingTop: 1
+    paddingBottom: 178
+  mSpritesJson: '[{"hasBorder":false,"hasPadding":true,"name":"baoji_0","x":199,"y":305,"width":250,"height":207,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":6,"paddingTop":0,"paddingBottom":49},{"hasBorder":false,"hasPadding":true,"name":"fightPower_0","x":450,"y":321,"width":239,"height":191,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":17,"paddingTop":0,"paddingBottom":65},{"hasBorder":false,"hasPadding":true,"name":"jiaxue_0","x":690,"y":313,"width":249,"height":96,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":7,"paddingTop":1,"paddingBottom":159},{"hasBorder":false,"hasPadding":true,"name":"other_da_0","x":0,"y":244,"width":198,"height":268,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":58,"paddingTop":0,"paddingBottom":244},{"hasBorder":false,"hasPadding":true,"name":"other_xiao_0","x":199,"y":101,"width":229,"height":203,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":27,"paddingTop":0,"paddingBottom":53},{"hasBorder":false,"hasPadding":true,"name":"playerFight_0","x":450,"y":129,"width":239,"height":191,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":17,"paddingTop":0,"paddingBottom":65},{"hasBorder":false,"hasPadding":true,"name":"pugong_0","x":199,"y":3,"width":250,"height":97,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":6,"paddingTop":0,"paddingBottom":159},{"hasBorder":false,"hasPadding":true,"name":"shixue_0","x":690,"y":216,"width":249,"height":96,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":7,"paddingTop":1,"paddingBottom":159},{"hasBorder":false,"hasPadding":true,"name":"zhongdu_da_0","x":690,"y":410,"width":241,"height":102,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":0,"paddingRight":15,"paddingTop":0,"paddingBottom":154},{"hasBorder":false,"hasPadding":true,"name":"zhongdu_xiao_0","x":690,"y":138,"width":245,"height":77,"borderLeft":0,"borderRight":0,"borderTop":0,"borderBottom":0,"paddingLeft":1,"paddingRight":10,"paddingTop":1,"paddingBottom":178}]'
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 146342}
+  m_IsPrefabParent: 1
