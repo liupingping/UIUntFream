@@ -2,6 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+/********************************************************************************
+*-----------------------------> 单例的模板类. <----------------------------------*
+*********************************************************************************/
+public abstract class Singleton<T> where T : class, new()
+{
+    protected static T s_instance = null;
+    public static T ins
+    {
+        get
+        {
+            CreateInstance();
+            return s_instance;
+        }
+    }
+
+    /// <summary>
+    ///> 预留接口，以便对应需要提前Instance的情况 
+    /// </summary>
+    public static void CreateInstance()
+    {
+        if (s_instance == null)
+            s_instance = new T();
+    }
+
+    public static bool HasInstance { get { return (s_instance != null); } }
+
+    public static void ResetInstance()
+    {
+        s_instance = null;
+    }
+}
+
+
 /**********************************************************************************
 *-> 创建一个以T.name为名字的GameObject，并且挂在GameMain节点上的MonoBehaviour单例. <-*
 ***********************************************************************************/

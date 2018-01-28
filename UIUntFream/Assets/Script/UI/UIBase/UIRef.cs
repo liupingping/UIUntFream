@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
-
-public class EX_UI_LoginGamePanel : UIRef
+public class UIRef : MonoBehaviour
 {
-    public UILabel lab;
-
-
+    public UIButton closeBtn;
 
 }
