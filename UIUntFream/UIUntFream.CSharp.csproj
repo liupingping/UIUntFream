@@ -402,12 +402,18 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UITiledSprite.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+    <Compile Include="Assets\Script\GameMain.cs" />
+    <Compile Include="Assets\Script\module\LoginGamePanel\EX_UI_LoginGamePanel.cs" />
+    <Compile Include="Assets\Script\module\LoginGamePanel\LoginGamePanel.cs" />
+    <Compile Include="Assets\Script\UI\UIBase\UIBase.cs" />
     <Compile Include="Assets\Script\UI\UIData\AssetHandler.cs" />
+    <Compile Include="Assets\Script\UI\UIData\AssetLoadAgent.cs" />
     <Compile Include="Assets\Script\UI\UIData\EditorAssetLoadAgent.cs" />
     <Compile Include="Assets\Script\UI\UIData\MonoSingleton.cs" />
-    <Compile Include="Assets\Script\UI\UIData\AssetLoadAgent.cs" />
+    <Compile Include="Assets\Script\UI\UIData\ResourcesPath.cs" />
     <Compile Include="Assets\Script\UI\UIManager\CoroutineHelper.cs" />
     <Compile Include="Assets\Script\UI\UIManager\ResourceMgr.cs" />
+    <Compile Include="Assets\Script\UI\UIManager\UIManager.cs" />
     <Compile Include="Assets\Script\UI\UIUtil\IOUtil.cs" />
   </ItemGroup>
   <ItemGroup>
