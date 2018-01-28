@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -408,13 +410,18 @@
     <Compile Include="Assets\Script\GameMain.cs" />
     <Compile Include="Assets\Script\module\LoginGamePanel\EX_UI_LoginGamePanel.cs" />
     <Compile Include="Assets\Script\module\LoginGamePanel\LoginGamePanel.cs" />
+    <Compile Include="Assets\Script\UI\UIApp\AppPanel.cs" />
+    <Compile Include="Assets\Script\UI\UIBase\IUIBase.cs" />
     <Compile Include="Assets\Script\UI\UIBase\UIBase.cs" />
     <Compile Include="Assets\Script\UI\UIBase\UIRef.cs" />
+    <Compile Include="Assets\Script\UI\UIData\AppConstant.cs" />
+    <Compile Include="Assets\Script\UI\UIData\AppInfo.cs" />
     <Compile Include="Assets\Script\UI\UIData\AssetHandler.cs" />
     <Compile Include="Assets\Script\UI\UIData\AssetLoadAgent.cs" />
     <Compile Include="Assets\Script\UI\UIData\EditorAssetLoadAgent.cs" />
     <Compile Include="Assets\Script\UI\UIData\MonoSingleton.cs" />
     <Compile Include="Assets\Script\UI\UIData\ResourcesPath.cs" />
+    <Compile Include="Assets\Script\UI\UIManager\AppManager.cs" />
     <Compile Include="Assets\Script\UI\UIManager\CoroutineHelper.cs" />
     <Compile Include="Assets\Script\UI\UIManager\ResourceMgr.cs" />
     <Compile Include="Assets\Script\UI\UIManager\UIManager.cs" />

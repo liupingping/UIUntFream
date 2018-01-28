@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using Object = UnityEngine.Object;
 
-public class UIBase<T> : MonoBehaviour where T : UIRef 
+public class UIBase<T> : MonoBehaviour, IUIBase where T : UIRef 
 {
     protected List<IEnumerator> loadCoroutines = new List<IEnumerator>();
     protected AssetLoadAgent prefabAssetLoadAgent; // 界面预设的资源
@@ -60,7 +60,6 @@ public class UIBase<T> : MonoBehaviour where T : UIRef
             yield break;
         }
 
-
         GameObject obj = (GameObject)prefabAssetLoadAgent.AssetObject;
         m_uiTrans = Object.Instantiate(obj).transform;
 
@@ -82,7 +81,7 @@ public class UIBase<T> : MonoBehaviour where T : UIRef
 
     public virtual void onHide()
     {
-
+        removeEvent();
     }
 
 
@@ -124,5 +123,15 @@ public class UIBase<T> : MonoBehaviour where T : UIRef
         }
     }
 
+    //----------------------------------------------------IUIBase---------------------------------------------
+    public void init()
+    {
+        
+    }
+
+    public void initData()
+    {
+        
+    }
 
 }
