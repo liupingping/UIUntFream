@@ -6,7 +6,6 @@ using Object = UnityEngine.Object;
 
 public class UIBase<T> : MonoBehaviour where T : UIRef 
 {
-
     protected List<IEnumerator> loadCoroutines = new List<IEnumerator>();
     protected AssetLoadAgent prefabAssetLoadAgent; // 界面预设的资源
     protected Transform m_uiTrans;          //> 界面根节点的transform
@@ -93,7 +92,6 @@ public class UIBase<T> : MonoBehaviour where T : UIRef
     public virtual void Unload()
     {
         onHide();
-
         if (prefabAssetLoadAgent != null)
         {
             prefabAssetLoadAgent.Release();
@@ -101,7 +99,6 @@ public class UIBase<T> : MonoBehaviour where T : UIRef
 
         Destroy(this.gameObject.transform);
         m_uiTrans = null;
-
     }
 
     private void onCloseBtn(GameObject obj)
@@ -125,7 +122,6 @@ public class UIBase<T> : MonoBehaviour where T : UIRef
         {
             
         }
-
     }
 
 

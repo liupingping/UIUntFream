@@ -16,7 +16,7 @@ public class EventCenter  {
     }
 
     public delegate void FuncCallback(object data);
-    private Dictionary<EventType, List<EventListener>> listenerMap = new Dictionary<EventType, List<EventListener>>();
+    private Dictionary<GlobalEventType, List<EventListener>> listenerMap = new Dictionary<GlobalEventType, List<EventListener>>();
 
     private readonly Dictionary<Type, object> typeBaseEvnents = new Dictionary<Type, object>();
     private readonly List<Type> eventInCalling = new List<Type>();
@@ -99,9 +99,9 @@ public class EventCenter  {
     //>-----------------------------------------------------------------------------
 
     //> 监听消息
-    public void AddListener(EventType eType, FuncCallback funcCB, bool insertFirst = false)
+    public void AddListener(GlobalEventType eType, FuncCallback funcCB, bool insertFirst = false)
     {
-        if (EventType.None == eType)
+        if (GlobalEventType.None == eType)
             return;
 
        // ProfilerSample.BeginSample("AddListener");
@@ -130,7 +130,7 @@ public class EventCenter  {
     //>-----------------------------------------------------------------------------
 
     //> 移除监听
-    public void RemoveListener(EventType eType, FuncCallback funcCB)
+    public void RemoveListener(GlobalEventType eType, FuncCallback funcCB)
     {
         //ProfilerSample.BeginSample("RemoveListener");
         List<EventListener> listenerList = null;
@@ -161,7 +161,7 @@ public class EventCenter  {
     //>-----------------------------------------------------------------------------
 
     //> 派发消息（常规用法）
-    public void Dispatch(EventType eType, object data)
+    public void Dispatch(GlobalEventType eType, object data)
     {
         //1. 尝试使用TryGetValue，字典只会遍历一次
         //2. 防止dispatch时候remove掉元素报错，可以从后往前遍历，所以监听方法的优先级要反过来排
@@ -181,7 +181,7 @@ public class EventCenter  {
     //>-----------------------------------------------------------------------------
 
     //> 派发消息（常规用法）
-    public void Dispatch(EventType eType, params object[] data)
+    public void Dispatch(GlobalEventType eType, params object[] data)
     {
         //1. 尝试使用TryGetValue，字典只会遍历一次
         //2. 防止dispatch时候remove掉元素报错，可以从后往前遍历，所以监听方法的优先级要反过来排
