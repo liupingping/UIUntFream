@@ -15,7 +15,7 @@ public class AppManager
 		 * @param openTable		要打开面板的哪个标签页 ,确定面板里调用了setMainTableBar方法设置主tableBar
 		 * @param parentContiner app的父容器对象
 		 */			
-		public static void showApp(string appName,Object data,String openTable)
+		public static void showApp(string appName,Object data = null,string openTable = "")
 		{
 			AppInfo appInfo = AppConstant.getAppinfoByAppName(appName);
 			preTurnModule(appInfo,data,openTable);
@@ -43,28 +43,16 @@ public class AppManager
 		{
 			if(appInfo != null)
 			{
-				String moduleName = appInfo.appName;
+				string moduleName = appInfo.appName;
                 AppPanel appPanel = _modulePanel.ContainsKey(moduleName)?_modulePanel[moduleName]:null;
-				if(appPanel != null)
+				if(appPanel == null)
 				{
-//					if(appPanel.isShowing() && isAutoHide)
-//					{
-//						appPanel.hide();
-//					}
-//					else 
-//					{
-//						appPanel.init(data,openTable,parentContiner);
-//						appPanel.show();
-//					}
+                    appPanel = new AppPanel(appInfo);
+                    _modulePanel.Add(moduleName, appPanel);
 				}
-				else
-				{
-//					appPanel = new AppPanel(appInfo);
-//					appPanel.depth = _moduleMap.length;
-//					_moduleMap.add(moduleName,appPanel);
-//					appPanel.init(data,openTable,parentContiner);
-//					appPanel.setup();
-				}
+
+                appPanel.init(data, openTable);
+                appPanel.setup();
 			}
 		}
 

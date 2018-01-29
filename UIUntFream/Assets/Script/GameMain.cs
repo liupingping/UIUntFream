@@ -22,10 +22,7 @@ public class GameMain : MonoBehaviour
 
     private void showLoginGamePanel()
     {
-        LoginGamePanel loginPanel = new LoginGamePanel();
-        loginPanel.show();
-
-
+        AppManager.showApp(AppConstant.LOGIN_GAME_PANEL);
     }
 
 

@@ -17,7 +17,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
 
         uiRootloadAgent = ResourceMgr.LoadAssetFromeAssetsFolderFirst(ResourcesPath.UIPrefabPath,
-                                                        (string)UI_STAGE, "prefab", typeof(UnityEngine.Object), null);
+                                                 (string)UI_STAGE, "prefab", typeof(UnityEngine.Object), null);
 
         while (!uiRootloadAgent.IsDone)
         {

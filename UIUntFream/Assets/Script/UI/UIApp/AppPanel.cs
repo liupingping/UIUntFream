@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using Object = System.Object;
 
 public class AppPanel 
 {
@@ -8,15 +9,17 @@ public class AppPanel
 	    private string _appName;
 	    private Object _data;
 	    private string _openTable;
-        private bool _isAppShowIng = false;
+        public bool isAppShowIng = false;
 
-        private IUIBase _IUIBase;
+        private IUIBase _IUIBase;//面板；
 
         /**
 		 * app资源是否已经在加载中 
 		 */		
 		private bool _isLoading = false;
-
+        protected AssetLoadAgent prefabAssetLoadAgent; // 界面预设的资源
+        protected List<IEnumerator> loadCoroutines = new List<IEnumerator>();
+       
 
         public  AppPanel(AppInfo appInfoP)
 	    {
@@ -30,51 +33,56 @@ public class AppPanel
             _openTable = openTable;
 	    }
 
-
         public void setup()
         {
-//          if(_app)
-//			{
-//				return ;
-//			}
-//			if(_isLoading)
-//			{
-//				return ;
-//			}
-//			isAppShowIng = true;
-//			
-//			var appUrl:String = ClientConfig.getAppModule(_appInfo.resName);
-//			if(_appInfo.appLoadType == AppInfo.SWF)
-//			{
-//				_isLoading = true;
-//				GameLog.add("##load app res:" + _appInfo.resName);
-//				AppLoadManager.instace.loadByUrl(
-//					appUrl,_appInfo.loadingTitle,onLoadComplete);
-//			}else{
-//				onLoadComplete(appUrl);
-//			}
+            isAppShowIng = true;
+            IEnumerator enumerator = starLoaderResouce();
+            loadCoroutines.Add(enumerator);
+            CoroutineHelper.ins.StartTrackedCoroutine(enumerator);
         }
 
-        public void show()
+        private IEnumerator starLoaderResouce()
         {
-//          isAppShowIng = true;
-//			if(_app)
-//			{
-//				var startTime:int = getTimer();
-//				if(_app.parent == null || _app.isHideEffecting())
-//				{
-//					_app.superAddEvent();
-//					_app.addEvent();
-//				}
-//				_app.show(_data,_openTable,_parentContiner);
-//				_app.refresh();
-//				var endTime:int = getTimer();
-//				trace(_appName + "##>>>>打开耗时:" + (endTime - startTime));
-//			}
-//			else  
-//			{
-//				setup();
-//			}
+            string resname = _appInfo.folderName != "" ? _appInfo.folderName + "/" + _appInfo.appName : _appInfo.appName;
+            prefabAssetLoadAgent = ResourceMgr.LoadAssetFromeAssetsFolderFirst(ResourcesPath.UIPrefabPath, resname, "prefab", typeof(UnityEngine.Object), null);
+            while (!prefabAssetLoadAgent.IsDone)
+            {
+                yield return null;
+            }
+            if (prefabAssetLoadAgent.AssetObject == null)
+            {
+                Debug.LogError("Load UI Root Faild!");
+                yield break;
+            }
+            GameObject obj = (GameObject)prefabAssetLoadAgent.AssetObject;
+            isLoaderComplete(obj);
+        }
+
+
+        private void isLoaderComplete(GameObject assetObj)
+        {
+            if (assetObj != null)
+            {
+                if (_IUIBase == null)
+                {
+                    _IUIBase = UICreatPanelInstance.ins.getUIPanelInstance(_appInfo.appName);
+                }
+
+                _IUIBase.setAssetObject(assetObj);
+                show();
+            }
+        }
+
+
+        private void show()
+        {
+            isAppShowIng = true;
+            if (_IUIBase != null)
+            {
+                _IUIBase.addEvent();
+                _IUIBase.show(_data,_openTable);
+                _IUIBase.refresh();
+            }
         }
 
         public void hide()
@@ -95,21 +103,39 @@ public class AppPanel
 //                _app.hide();
 //                AppDispather.instance.dispatchEvent(new AppEvent(AppEvent.APP_HIDE, appInfo));
 //            }
+
+            isAppShowIng = false;
+            if (_IUIBase != null)
+            {
+                _IUIBase.removeEvent();
+                _IUIBase.hide();
+            }
+
+            if (prefabAssetLoadAgent != null)
+            {
+                prefabAssetLoadAgent.Release();
+            }
+
         }
 
         public void dispose()
         {
-//            hide();
-//            if (_app)
-//            {
-//                _app.dispose();
-//            }
+            hide();
+            if (_IUIBase != null)
+            {
+                _IUIBase.dispose();
+            }
+
+            if (prefabAssetLoadAgent != null)
+            {
+                prefabAssetLoadAgent.Release();
+            }
         }
 
 
-        public void onLoadComplete()
-        {
-             _isLoading = false;
+//        public void onLoadComplete()
+//        {
+//             _isLoading = false;
 //			if(isAppShowIng)
 //			{
 //				var startTime:int = getTimer();
@@ -150,9 +176,7 @@ public class AppPanel
 //				var endTime:int = getTimer();
 //				trace(_appName + "##>>>>初始化并打开耗时:" + (endTime - startTime));
 //			}
-
-        
-        }
+//        }
 
 
 

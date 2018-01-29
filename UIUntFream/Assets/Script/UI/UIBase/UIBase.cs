@@ -12,126 +12,72 @@ public class UIBase<T> : MonoBehaviour, IUIBase where T : UIRef
 
     private UIRef m_component = null;
     public T Ref { get { return (T)m_component; } }
-
     private void SetRef(UIRef mono) { m_component = mono; }
 
-    /// <summary>
-    /// prefab所在文件夹名称
-    /// </summary>
-    public virtual string FolderName{ 
-        get { return ""; }
-    }
 
-    public virtual string ResouceName {
-        get { return ""; }
-    }
-
-    public void show(Action onAsyncFinish)
+    //----------------------------------------------------IUIBase---------------------------------------------
+    public void setAssetObject(GameObject obj)
     {
-        loaderAsset(onAsyncFinish);
-    }
-
-    public void loaderAsset(Action onAsyncFinish)
-    {
-        IEnumerator enumerator = _AssembleUIPrefab(onAsyncFinish);
-        loadCoroutines.Add(enumerator);
-        CoroutineHelper.ins.StartTrackedCoroutine(enumerator);
-    }
-   
-
-    /// <summary>
-    /// >组装界面prefab
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator _AssembleUIPrefab(Action onAsyncFinish)
-    {
-        string resname = FolderName + "/" + ResouceName;
-        prefabAssetLoadAgent = ResourceMgr.LoadAssetFromeAssetsFolderFirst(ResourcesPath.UIPrefabPath, resname, "prefab",
-                                                typeof(UnityEngine.Object), null);
-
-        while (!prefabAssetLoadAgent.IsDone)
+        if (obj != null)
         {
-            yield return null;
-        }
+            m_uiTrans = Object.Instantiate(obj).transform;
+            m_uiTrans.gameObject.name = "";
+            m_uiTrans.parent = UIManager.ins.UIRootTransform;
+            m_uiTrans.localPosition = new Vector3(0, 0, 0);
+            m_uiTrans.localRotation = Quaternion.identity;
+            m_uiTrans.localScale = Vector3.one;
 
-        if (prefabAssetLoadAgent.AssetObject == null)
-        {
-            Debug.LogError("Load UI Root Faild!");
-            yield break;
-        }
-
-        GameObject obj = (GameObject)prefabAssetLoadAgent.AssetObject;
-        m_uiTrans = Object.Instantiate(obj).transform;
-
-        //> 新界面放置到主界面下面
-        m_uiTrans.gameObject.name = ResouceName;
-        m_uiTrans.parent = UIManager.ins.UIRootTransform;
-        m_uiTrans.localPosition = new Vector3(0, 0, 0);
-        m_uiTrans.localRotation = Quaternion.identity;
-        m_uiTrans.localScale = Vector3.one;
-
-        UIRef uiRef = m_uiTrans.GetComponent<UIRef>();
-        SetRef(uiRef);
-
-        if (onAsyncFinish != null)
-        {
-            onAsyncFinish();
+            UIRef uiRef = m_uiTrans.GetComponent<UIRef>();
+            SetRef(uiRef);
         }
     }
 
-    public virtual void onHide()
+
+    public virtual void initView()
     {
-        removeEvent();
+
+
     }
 
 
-    /// <summary>
-    /// >卸载界面
-    /// </summary>
-    public virtual void Unload()
+    public virtual void setup()
     {
-        onHide();
-        if (prefabAssetLoadAgent != null)
-        {
-            prefabAssetLoadAgent.Release();
-        }
+        
 
-        Destroy(this.gameObject.transform);
-        m_uiTrans = null;
     }
 
-    private void onCloseBtn(GameObject obj)
+    public void show(object obj = null, string openTable = "")
     {
-        Unload();
+        
     }
 
+    public virtual void refresh()
+    {
+        
+    }
 
     public virtual void addEvent()
     {
-        if (Ref.closeBtn != null)
-        {
-            UIEventListener.Get(Ref.closeBtn.gameObject).onClick = onCloseBtn;
-        }
+        
 
     }
 
     public virtual void removeEvent()
     {
-        if (Ref.closeBtn != null)
-        {
-            
-        }
+        
     }
 
-    //----------------------------------------------------IUIBase---------------------------------------------
-    public void init()
+    public virtual void hide()
     {
         
     }
 
-    public void initData()
+    public virtual void dispose()
     {
-        
+        Destroy(this.gameObject.transform);
+        Destroy(m_uiTrans);
+        m_uiTrans = null;
     }
+
 
 }

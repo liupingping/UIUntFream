@@ -424,6 +424,7 @@
     <Compile Include="Assets\Script\UI\UIManager\AppManager.cs" />
     <Compile Include="Assets\Script\UI\UIManager\CoroutineHelper.cs" />
     <Compile Include="Assets\Script\UI\UIManager\ResourceMgr.cs" />
+    <Compile Include="Assets\Script\UI\UIManager\UICreatPanelInstance.cs" />
     <Compile Include="Assets\Script\UI\UIManager\UIManager.cs" />
     <Compile Include="Assets\Script\UI\UIUtil\IOUtil.cs" />
     <Compile Include="Assets\Script\Utilities\Collections\FastList.cs" />

@@ -4,17 +4,53 @@ using UnityEngine;
 
 public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
 {
-    public override string FolderName { get { return "LoginGamePanel"; } }
-
-    public override string ResouceName { get { return "LoginGamePanel"; } }
-
-    public void show()
+    public override void setup()
     {
-        base.show(showInfo);    
+        base.setup();
+        Debug.Log("--------------------setup---------------------");
+    }
+
+
+    public override void initView()
+    {
+        base.initView();
+        Debug.Log("--------------------initView---------------------");
+    }
+
+    public override void refresh()
+    {
+        base.refresh();
+        Debug.Log("--------------------refresh---------------------");
+        showInfo();
 
     }
 
-    public void showInfo()
+    public override void addEvent()
+    {
+        base.addEvent();
+        Debug.Log("--------------------addEvent---------------------");
+    }
+
+    public override void removeEvent()
+    {
+        base.removeEvent();
+        Debug.Log("--------------------removeEvent---------------------");
+    }
+
+    public override void hide()
+    {
+        base.hide();
+        Debug.Log("--------------------hide---------------------");
+    }
+
+    public override void dispose()
+    {
+        base.dispose();
+        Debug.Log("--------------------dispose---------------------");
+    }
+
+
+    private void showInfo()
     {
         Debug.LogError("--------------LoginGamePanel-----------");
 
@@ -28,18 +64,7 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
         }
     }
 
-    public override void addEvent()
-    {
-        base.addEvent();
-
-    }
-
-    public override void removeEvent()
-    {
-        base.removeEvent();
-
-
-    }
+    
 
     
 }

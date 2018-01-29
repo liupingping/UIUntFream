@@ -26,4 +26,17 @@ public interface IUIBase
 	void dispose();
      */
 
+    void setAssetObject(GameObject obj);
+
+
+    void initView();
+    void setup();
+    void show(object obj = null, string openTable = "");
+
+    void refresh();
+
+    void addEvent();
+    void removeEvent();
+    void hide();
+    void dispose();
 }

@@ -6,14 +6,23 @@ using System.Text;
 public class AppConstant
 {
     private static Dictionary<string, AppInfo> appNameDic = new Dictionary<string, AppInfo>();
-
-    private static string createAppInfo(string moduleNameP,string resNameP,string loadingTitleP,string btnNameP)
+    
+    /// <summary>
+    /// 创建面板信息
+    /// </summary>
+    /// <param name="moduleNameP">模块名</param> 
+    /// <param name="folderNameP">目录名</param>
+    /// <param name="resNameP">资源名</param>
+    /// <param name="loadingTitleP">加载名</param>
+    /// <param name="btnNameP">点击按钮</param>
+    /// <returns></returns>
+    private static string createAppInfo(string moduleNameP,string folderNameP,string resNameP,string loadingTitleP,string btnNameP)
     {
 
          AppInfo app = appNameDic.ContainsKey(moduleNameP) ? appNameDic[moduleNameP] : null;
 		 if(app == null)
 		 {
-			app = new AppInfo(moduleNameP,resNameP,loadingTitleP,btnNameP);
+             app = new AppInfo(moduleNameP, folderNameP,resNameP, loadingTitleP, btnNameP);
 			appNameDic[moduleNameP] = app;
 		 }
 			
@@ -27,7 +36,7 @@ public class AppConstant
 	}
 
 
-    public static string LOGIN_GAME_PANEL = createAppInfo("LoginGamePanel", "LoginGamePanel", "登陆面板", "");
+    public static string LOGIN_GAME_PANEL = createAppInfo("LoginGamePanel","LoginGamePanel", "LoginGamePanel", "登陆面板", "");
 
 }
     
