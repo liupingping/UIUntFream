@@ -26,6 +26,8 @@ public interface IUIBase
 	void dispose();
      */
 
+    void setAppInfo(AppInfo appInfo);
+
     void setAssetObject(GameObject obj);
 
 

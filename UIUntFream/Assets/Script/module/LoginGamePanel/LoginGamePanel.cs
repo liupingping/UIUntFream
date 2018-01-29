@@ -7,20 +7,20 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
     public override void setup()
     {
         base.setup();
-        Debug.Log("--------------------setup---------------------");
+        Debug.LogError("--------------------setup---------------------");
     }
 
 
     public override void initView()
     {
         base.initView();
-        Debug.Log("--------------------initView---------------------");
+        Debug.LogError("--------------------initView---------------------");
     }
 
     public override void refresh()
     {
         base.refresh();
-        Debug.Log("--------------------refresh---------------------");
+        Debug.LogError("--------------------refresh---------------------");
         showInfo();
 
     }
@@ -28,25 +28,25 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
     public override void addEvent()
     {
         base.addEvent();
-        Debug.Log("--------------------addEvent---------------------");
+        Debug.LogError("--------------------addEvent---------------------");
     }
 
     public override void removeEvent()
     {
         base.removeEvent();
-        Debug.Log("--------------------removeEvent---------------------");
+        Debug.LogError("--------------------removeEvent---------------------");
     }
 
     public override void hide()
     {
         base.hide();
-        Debug.Log("--------------------hide---------------------");
+        Debug.LogError("--------------------hide---------------------");
     }
 
     public override void dispose()
     {
         base.dispose();
-        Debug.Log("--------------------dispose---------------------");
+        Debug.LogError("--------------------dispose---------------------");
     }
 
 

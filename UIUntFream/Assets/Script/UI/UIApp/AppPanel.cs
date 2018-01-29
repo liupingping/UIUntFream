@@ -68,6 +68,7 @@ public class AppPanel
                     _IUIBase = UICreatPanelInstance.ins.getUIPanelInstance(_appInfo.appName);
                 }
 
+                _IUIBase.setAppInfo(_appInfo);
                 _IUIBase.setAssetObject(assetObj);
                 show();
             }

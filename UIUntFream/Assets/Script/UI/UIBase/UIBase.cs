@@ -6,13 +6,17 @@ using Object = UnityEngine.Object;
 
 public class UIBase<T> : MonoBehaviour, IUIBase where T : UIRef 
 {
-    protected List<IEnumerator> loadCoroutines = new List<IEnumerator>();
-    protected AssetLoadAgent prefabAssetLoadAgent; // 界面预设的资源
     protected Transform m_uiTrans;          //> 界面根节点的transform
-
     private UIRef m_component = null;
     public T Ref { get { return (T)m_component; } }
     private void SetRef(UIRef mono) { m_component = mono; }
+
+    public AppInfo appInfo;
+
+    public void setAppInfo(AppInfo aInfo)
+    {
+        appInfo = aInfo;
+    }
 
 
     //----------------------------------------------------IUIBase---------------------------------------------
@@ -21,7 +25,7 @@ public class UIBase<T> : MonoBehaviour, IUIBase where T : UIRef
         if (obj != null)
         {
             m_uiTrans = Object.Instantiate(obj).transform;
-            m_uiTrans.gameObject.name = "";
+            m_uiTrans.gameObject.name = appInfo.appName;
             m_uiTrans.parent = UIManager.ins.UIRootTransform;
             m_uiTrans.localPosition = new Vector3(0, 0, 0);
             m_uiTrans.localRotation = Quaternion.identity;
