@@ -408,11 +408,15 @@
     <Compile Include="Assets\Script\EventCenter\GlobalEventType.cs" />
     <Compile Include="Assets\Script\EventCenter\TypeEventBus.cs" />
     <Compile Include="Assets\Script\GameMain.cs" />
-    <Compile Include="Assets\Script\module\LoginGamePanel\EX_UI_LoginGamePanel.cs" />
+    <Compile Include="Assets\Script\module\LoginGamePanel\BaseUI\EX_UI_LoginGamePanel.cs" />
+    <Compile Include="Assets\Script\module\LoginGamePanel\BaseUI\EX_UI_LoginUseCanaves.cs" />
     <Compile Include="Assets\Script\module\LoginGamePanel\LoginGamePanel.cs" />
+    <Compile Include="Assets\Script\module\LoginGamePanel\LoginUseCanaves.cs" />
     <Compile Include="Assets\Script\UI\UIApp\AppPanel.cs" />
     <Compile Include="Assets\Script\UI\UIBase\IUIBase.cs" />
+    <Compile Include="Assets\Script\UI\UIBase\IUICanvase.cs" />
     <Compile Include="Assets\Script\UI\UIBase\UIBase.cs" />
+    <Compile Include="Assets\Script\UI\UIBase\UICanvase.cs" />
     <Compile Include="Assets\Script\UI\UIBase\UIRef.cs" />
     <Compile Include="Assets\Script\UI\UIData\AppConstant.cs" />
     <Compile Include="Assets\Script\UI\UIData\AppInfo.cs" />

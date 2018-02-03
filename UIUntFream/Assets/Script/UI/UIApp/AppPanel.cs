@@ -80,6 +80,8 @@ public class AppPanel
             isAppShowIng = true;
             if (_IUIBase != null)
             {
+                _IUIBase.setup();
+                _IUIBase.initView();
                 _IUIBase.addEvent();
                 _IUIBase.show(_data,_openTable);
                 _IUIBase.refresh();

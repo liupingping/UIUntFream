@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
 {
+
+    private LoginUseCanaves _loginUseCanaves;
+
+
     public override void setup()
     {
         base.setup();
         Debug.LogError("--------------------setup---------------------");
+        _loginUseCanaves = new LoginUseCanaves();
+        _loginUseCanaves.setup(Ref.loginUseCanvas);
     }
 
 
@@ -15,6 +21,9 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
     {
         base.initView();
         Debug.LogError("--------------------initView---------------------");
+
+       
+
     }
 
     public override void refresh()
@@ -22,18 +31,20 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
         base.refresh();
         Debug.LogError("--------------------refresh---------------------");
         showInfo();
-
+        _loginUseCanaves.setData();
     }
 
     public override void addEvent()
     {
         base.addEvent();
+        _loginUseCanaves.addEvent();
         Debug.LogError("--------------------addEvent---------------------");
     }
 
     public override void removeEvent()
     {
         base.removeEvent();
+        _loginUseCanaves.removeEvetn();
         Debug.LogError("--------------------removeEvent---------------------");
     }
 
@@ -45,6 +56,7 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
 
     public override void dispose()
     {
+        _loginUseCanaves.destory();
         base.dispose();
         Debug.LogError("--------------------dispose---------------------");
     }
