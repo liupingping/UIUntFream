@@ -10,7 +10,7 @@ public class GameMain : MonoBehaviour
 	public void Start ()
 	{
 	    initLayer();
-	    showLoginGamePanel();
+	    //showLoginGamePanel();
 	}
 
 
