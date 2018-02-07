@@ -10,13 +10,12 @@ public class GameMain : MonoBehaviour
 	public void Start ()
 	{
 	    initLayer();
-	    //showLoginGamePanel();
 	}
 
 
     private void initLayer()
     {
-        UIManager.ins.InitUI();
+        StartCoroutine(UIManager.ins.InitUI(showLoginGamePanel));
     }
 
 

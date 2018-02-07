@@ -13,9 +13,10 @@ public class UIManager : MonoSingleton<UIManager>
     private AssetLoadAgent uiRootloadAgent = null; // uiroot的加载代理
 
 
-    public IEnumerator InitUI()
+    public IEnumerator InitUI(Action action)
     {
 
+        Debug.LogError("-------initUI ----1---");
         uiRootloadAgent = ResourceMgr.LoadAssetFromeAssetsFolderFirst(ResourcesPath.UIPrefabPath,
                                                  (string)UI_STAGE, "prefab", typeof(UnityEngine.Object), null);
 
@@ -30,6 +31,7 @@ public class UIManager : MonoSingleton<UIManager>
             yield break;
         }
 
+        Debug.LogError("-------initUI ----2---");
         Transform stageTrans = ((GameObject)Instantiate(uiRootloadAgent.AssetObject)).transform;
         stageTrans.gameObject.name = UI_STAGE;
         stageTrans.parent = CachedTrans;
@@ -42,9 +44,12 @@ public class UIManager : MonoSingleton<UIManager>
         UIRootTransform.gameObject.layer = stageTrans.gameObject.layer;
         //> Z坐标不要放太远，会影响3D模型动作计算，导致模型抖动
         transform.position = new Vector3(0, 100, 0);
+        Debug.LogError("-------initUI ----3---");
 
-
-           
+        if (action != null)
+        {
+            action();
+        }
 
     }
 

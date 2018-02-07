@@ -78,9 +78,13 @@ public class UIBase<T> : MonoBehaviour, IUIBase where T : UIRef
 
     public virtual void dispose()
     {
-        Destroy(this.gameObject.transform);
-        Destroy(m_uiTrans);
-        m_uiTrans = null;
+        if (m_uiTrans != null)
+        {
+            removeEvent();
+            Destroy(m_uiTrans.gameObject);
+            m_uiTrans = null;
+        }
+        
     }
 
 

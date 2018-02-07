@@ -18,9 +18,9 @@ public class UICanvase<T> :IUICanvase where T : MonoBehaviour
     public virtual void setup(object ob)
     {
         string className = typeof (T).Name;
-        if (!(className.StartsWith("EX_UI_")&&className.EndsWith("Canvase")))
+        if ( !( className.StartsWith("EX_UI_") && className.EndsWith("Canaves") ) )
         {
-            Debug.LogError("Class Name Error! Should Be [ EX_UI_ " + className + " Canvase ]");
+            Debug.LogError("Class Name Error! Should Be [ EX_UI_ " + className + " Canaves ]");
         }
         _component = ob;
     }

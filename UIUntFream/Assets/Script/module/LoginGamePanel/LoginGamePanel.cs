@@ -11,7 +11,6 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
     public override void setup()
     {
         base.setup();
-        Debug.LogError("--------------------setup---------------------");
         _loginUseCanaves = new LoginUseCanaves();
         _loginUseCanaves.setup(Ref.loginUseCanvas);
     }
@@ -20,16 +19,11 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
     public override void initView()
     {
         base.initView();
-        Debug.LogError("--------------------initView---------------------");
-
-       
-
     }
 
     public override void refresh()
     {
         base.refresh();
-        Debug.LogError("--------------------refresh---------------------");
         showInfo();
         _loginUseCanaves.setData();
     }
@@ -38,37 +32,35 @@ public class LoginGamePanel : UIBase<EX_UI_LoginGamePanel>
     {
         base.addEvent();
         _loginUseCanaves.addEvent();
-        Debug.LogError("--------------------addEvent---------------------");
+
+        Ref.closeBtn.onClick.Add(new EventDelegate(onClickClose));
+        
     }
 
     public override void removeEvent()
     {
         base.removeEvent();
         _loginUseCanaves.removeEvetn();
-        Debug.LogError("--------------------removeEvent---------------------");
     }
+
+
+    private void onClickClose()
+    {
+        dispose();
+    }
+
 
     public override void hide()
     {
         base.hide();
-        Debug.LogError("--------------------hide---------------------");
     }
 
-    public override void dispose()
-    {
-        _loginUseCanaves.destory();
-        base.dispose();
-        Debug.LogError("--------------------dispose---------------------");
-    }
-
+   
 
     private void showInfo()
     {
-        Debug.LogError("--------------LoginGamePanel-----------");
-
         if (Ref.lab == null)
         {
-            Debug.LogError("===================lab===============");
         }
         else
         {
